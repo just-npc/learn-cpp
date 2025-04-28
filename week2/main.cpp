@@ -6,6 +6,7 @@ using namespace std;
 
 void addStudent(string students[], int scores[], int length);
 void showStudent(string students[], int scores[], int length);
+void searchStudent(string students[], string studentName, int scores[], int length);
 
 int main()
 {
@@ -17,6 +18,7 @@ int main()
   int arrLength = sizeof(students) / sizeof(*students);
 
   int number;
+  string studentName;
 
   do
   {
@@ -44,6 +46,12 @@ int main()
     case 2:
       cout << "All Students " << endl;
       showStudent(students, scores, arrLength);
+      break;
+
+    case 3:
+      cout << "input the student name you want to search!" << endl;
+      cin >> studentName;
+      searchStudent(students, studentName, scores, 1);
       break;
 
     case 5:
@@ -88,5 +96,22 @@ void showStudent(string students[], int scores[], int length)
   {
     /* code */
     cout << "no." << i + 1 << " | " << students[i] << " |" << scores[i] << endl;
+  }
+}
+
+void searchStudent(string students[], string studentName, int scores[], int length)
+{
+  for (int i = 0; i < length; i++)
+  {
+    /* code */
+    if (students[i] == studentName)
+    {
+      cout << "found!" << endl;
+      cout << "name: " << students[i] << " score: " << scores[i] << endl;
+    }
+    else
+    {
+      cout << "student not found!" << endl;
+    }
   }
 }
