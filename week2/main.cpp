@@ -7,6 +7,7 @@ using namespace std;
 void addStudent(string students[], int scores[], int length);
 void showStudent(string students[], int scores[], int length);
 void searchStudent(string students[], string studentName, int scores[], int length);
+void sortStudent(int scores[], int length);
 
 int main()
 {
@@ -15,7 +16,7 @@ int main()
 
   string students[10];
   int scores[10];
-  int arrLength = sizeof(students) / sizeof(*students);
+  // int arrLength = sizeof(students) / sizeof(*students);
 
   int number;
   string studentName;
@@ -45,13 +46,18 @@ int main()
 
     case 2:
       cout << "All Students " << endl;
-      showStudent(students, scores, arrLength);
+      showStudent(students, scores, number);
       break;
 
     case 3:
       cout << "input the student name you want to search!" << endl;
       cin >> studentName;
-      searchStudent(students, studentName, scores, 1);
+      searchStudent(students, studentName, scores, number);
+      break;
+
+    case 4:
+      cout << "this are the scores from lowest to highest" << endl;
+      sortStudent(scores, number);
       break;
 
     case 5:
@@ -114,4 +120,30 @@ void searchStudent(string students[], string studentName, int scores[], int leng
       cout << "student not found!" << endl;
     }
   }
+}
+
+void sortStudent(int scores[], int length) {
+  // bool swapped;
+  for (int i = 0; i < length - 1; i++)
+  {
+    /* code */
+    // swapped = false;
+    for (int j = 0; j < length - i - 1; j++)
+    {
+      /* code */
+      if (scores[j] > scores[j + 1])
+      {
+        /* code */
+        int temp = scores[j];
+        scores[j] = scores[j + 1];
+        scores[j + 1] = temp;
+        cout << temp;
+        cout << "Swapped " << scores[j] << " and " << scores[j+1] << endl;
+
+      }
+      
+    }
+    
+  }
+  
 }
